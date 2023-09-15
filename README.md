@@ -19,7 +19,7 @@ You cannot wrap the row inside a component, as this will break the layout.
 
 ## Thoughts
 
-- If you wrap each row inside another component, then you can intialize a store for each wrapper component. 
+- If you wrap each row inside another component, then you can initialize a store for each wrapper component. 
 - I modified the pipe just to see what it would take to achieve the result.  
 - I passed currencyCode to the pipe.  I was able to display the currencyCode but displaying the symbol code doesn't seem possible without a dictionary / lookup object.  
 - I tried to use patchState inside the transform pipe but you get `Error: NG0100: ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked. Previous value: '1000 US$'. Current value: '1000 €'.`
