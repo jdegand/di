@@ -2,9 +2,10 @@
 import { AsyncPipe, NgFor } from '@angular/common';
 import { Component, Directive } from '@angular/core';
 import { TableModule } from 'primeng/table';
-import { CurrencyPipe } from './currency.pipe';
+//import { CurrencyPipe } from './currency.pipe';
 import { CurrencyService } from './currency.service';
 import { Product, products } from './product.model';
+import { CurrencyDirective } from './currency.directive';
 
 interface ProductContext {
   $implicit: Product;
@@ -25,7 +26,7 @@ export class ProductDirective {
 
 @Component({
   standalone: true,
-  imports: [TableModule, CurrencyPipe, AsyncPipe, NgFor, ProductDirective],
+  imports: [TableModule, CurrencyDirective, AsyncPipe, NgFor, ProductDirective],
   providers: [CurrencyService],
   selector: 'app-root',
   template: `
@@ -40,9 +41,9 @@ export class ProductDirective {
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>{{ product.name }}</td>
-          <td>{{ product.priceA | currency : product.currencyCode | async }}</td>
-          <td>{{ product.priceB | currency : product.currencyCode | async }}</td>
-          <td>{{ product.priceC | currency : product.currencyCode | async }}</td>
+          <td currency value={{product.currencyCode}}>{{ product.priceA }}</td>
+          <td currency value={{product.currencyCode}}>{{ product.priceB }}</td>
+          <td currency value={{product.currencyCode}}>{{ product.priceC }}</td>
         </tr>
       </ng-template>
     </p-table>
