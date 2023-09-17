@@ -22,9 +22,11 @@ You cannot wrap the row inside a component, as this will break the layout.
 - If you wrap each row inside another component, then you can initialize a store for each wrapper component. 
 - I modified the pipe just to see what it would take to achieve the result.  
 - I passed currencyCode to the pipe.  I was able to display the currencyCode but displaying the symbol doesn't seem possible without a dictionary / lookup object.  
-- I tried to use patchState inside the transform pipe but you get `Error: NG0100: ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked. Previous value: '1000 US$'. Current value: '1000 €'.`
-- Also, "Writing to signals is not allowed in a `computed` or an `effect` by default. Use `allowSignalWrites` in the `CreateEffectOptions` to enable this inside effects."
 - The `currency` object is already exported so I imported it and used the find method to get the symbol in the html.
+- I tried to use patchState inside the transform pipe but you get `Error: NG0100: ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked. Previous value: '1000 US$'. Current value: '1000 €'.` 
+- Also, "Writing to signals is not allowed in a `computed` or an `effect` by default. Use `allowSignalWrites` in the `CreateEffectOptions` to enable this inside effects."
+- Could you combine the component store and a directive and eliminate the currency service and pipe?  
+- `currency-code.directive` is my exploration of this idea.  I was influenced by this [Angular Snippet](https://angularsnippets.dev/snippets/stateful-directive-with-output/).
 
 ## Useful Resources
 
